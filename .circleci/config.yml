@@ -32,5 +32,14 @@ jobs:
 
       - run: npm test
 
-      - run: serverless deploy
+      - run:
+          name: Deploy dev/prod
+          command: |
+            if [[ "${CIRCLE_BRANCH}" == "develop" ]]; then
+              serverless deploy --stage dev
+            elif [[ "${CIRCLE_BRANCH}" == "master" ]]; then
+              serverless deploy --stage prod
+            else
+              echo "Not a deployable branch. Skipping."
+            fi
 
