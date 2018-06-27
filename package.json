@@ -3,9 +3,6 @@
   "version": "1.1.0",
   "description": "A Node.js starter for the Serverless Framework with async/await and unit test support",
   "main": "handler.js",
-  "scripts": {
-    "test": "jest"
-  },
   "author": "",
   "license": "MIT",
   "repository": {
@@ -21,6 +18,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "jest": "^21.2.1",
+    "serverless": "^1.27.3",
     "serverless-offline": "^3.20.3",
     "serverless-webpack": "^5.1.0",
     "webpack": "^4.2.0",
@@ -30,5 +28,13 @@
     "babel-runtime": "^6.26.0",
     "source-map-support": "^0.4.18",
     "uuid": "^3.2.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "serlerless": "serverless",
+    "sls": "serverless",
+    "deploy": "serverless deploy",
+    "deploy:dev": "serverless deploy --stage dev",
+    "deploy:prod": "serverless deploy --stage prod"
   }
 }

@@ -18,11 +18,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - dependencies-cache
 
-      - run:
-          name: Install Serverless CLI and npm dependencies
-          command: |
-            sudo npm i -g serverless
-            npm install
+      - run: npm install
 
       # Save dependencies cache
       - save_cache:
@@ -36,9 +32,9 @@ jobs:
           name: Deploy dev/prod
           command: |
             if [[ "${CIRCLE_BRANCH}" == "develop" ]]; then
-              serverless deploy --stage dev
+              npm run deploy:dev
             elif [[ "${CIRCLE_BRANCH}" == "master" ]]; then
-              serverless deploy --stage prod
+              npm run deploy:prod
             else
               echo "Not a deployable branch. Skipping."
             fi
