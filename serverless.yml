@@ -1,4 +1,4 @@
-service: notes-app-api
+service: notes-app-2-api
 
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
@@ -39,13 +39,6 @@ provider:
       Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: hello
-          method: get
-
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /notes
   # - method: POST request
